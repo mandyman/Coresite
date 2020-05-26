@@ -81,5 +81,71 @@ namespace Coresite.Areas.Admin.Controllers
 
             return View(category);
         }
+
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+
+            }
+
+            var category = await _db.Category.FindAsync(id);
+            _db.Remove(category);
+            await _db.SaveChangesAsync();
+
+            if (category == null)
+            {
+                return NotFound();
+
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+
+            }
+
+            var category = await _db.Category.FindAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+
+            }
+
+            return View(category);
+
+        }
+
+        /*
+        //get edit
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+
+            }
+
+            var category = await _db.Category.FindAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+
+            }
+
+            return View();
+        }
+        */
+
+        //post delete
+
+
     }
 }
