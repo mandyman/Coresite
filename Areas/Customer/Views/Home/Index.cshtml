@@ -1,8 +1,49 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model Coresite.Models.ViewModel.IndexViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<br />
+<br />
+
+<div class="backgroundWhite container">
+    <ul id="menu-filters" class="nav-pills list-inline text-center">
+        <li class="filter active btn btn-info ml-1 mr-1" data-filter=".menu-restaurant" style="cursor: pointer; margin-bottom: 10px">Show All</li>
+        
+        @foreach (var item in Model.Category)
+        {
+            <li class="filter btn btn-info ml-1 mr-1" data-filter=".@item.Name.Replace(" ",string.Empty)" style="cursor: pointer; margin-bottom: 10px">@item.Name</li>
+        }
+    </ul>
+
+    @foreach (var category in Model.Category)
+    {
+        <div class="row" id="menu-wrapper">
+
+            <partial name="_ThumbnailAreaPartial" model="Model.MenuItem.Where(u => u.Category.Name.Equals(category.Name))"/>
+        </div>
+    }
 </div>
+
+@section Scripts
+{
+    <script>
+        var post = $('.post');
+
+        (function($) {
+            $("#menu-filters li").click(function() {
+                $("#menu-filters li").removeClass('active');
+                    $(this).addClass('active');
+
+                    var selectedFilter = $(this).data("filter");
+
+                    $(".menu-restaurant").fadeOut();
+
+                    setTimeout(function() {
+                            $(selectedFilter).slideDown();
+                        },
+                        300
+                    );
+
+                });
+            }
+        )(jQuery);
+    </script>
+}

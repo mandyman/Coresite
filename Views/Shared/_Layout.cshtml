@@ -10,7 +10,7 @@
 </head>
 <body class="search-background">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-secondary border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Coresite</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -29,7 +29,8 @@
                                 <a class="dropdown-item" asp-action="Index" asp-controller="Category" asp-area="Admin">Category</a>
                                 <a class="dropdown-item" asp-action="Index" asp-controller="SubCategory" asp-area="Admin">SubCategory</a>
 
-                                <a class="dropdown-item">MenuItem</a>
+                                <a class="dropdown-item" asp-action="Index" asp-controller="MenuItem" asp-area="Admin">MenuItem</a>
+
                                 <a class="dropdown-item">Coupons</a>
                                 <a class="dropdown-item">Use</a>
                                 </div>
@@ -51,7 +52,7 @@
         </main>
     </div>
 
-    <footer class="border-top pl-3 footer text-white-50" style="background-color: #343a40;">
+    <footer class="border-top pl-3 footer text-black-50">
         <div class="container">
             &copy; 2020 - Coresite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
