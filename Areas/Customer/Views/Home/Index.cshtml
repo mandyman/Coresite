@@ -12,6 +12,13 @@
             <li class="filter btn btn-info ml-1 mr-1" data-filter=".@item.Name.Replace(" ",string.Empty)" style="cursor: pointer; margin-bottom: 10px">@item.Name</li>
         }
     </ul>
+    
+    @if (Model.Category.Count() == 0)
+    {
+        <div class="row justify-content-center">
+            <p> There are no categories created! </p>
+        </div>
+    }
 
     @foreach (var category in Model.Category)
     {

@@ -110,22 +110,6 @@ namespace Coresite.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    if (!await _roleManager.RoleExistsAsync(SD.CustomerUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.CustomerUser));
-                    }
-                    if (!await _roleManager.RoleExistsAsync(SD.KitchenUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.KitchenUser));
-                    }
-                    if (!await _roleManager.RoleExistsAsync(SD.FrontDeskUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.FrontDeskUser));
-                    }
-                    if (!await _roleManager.RoleExistsAsync(SD.ManagerUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.ManagerUser));
-                    }
 
 
                     if (role == SD.KitchenUser)
