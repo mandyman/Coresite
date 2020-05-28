@@ -7,6 +7,7 @@ using Coresite.Data;
 using Coresite.Models;
 using Coresite.Models.ViewModel;
 using Coresite.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -14,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Coresite.Areas.Admin.Controllers
 {
+    //[Authorize(Roles = SD.ManagerUser)]
+    [Authorize(Roles = SD.ManagerUser + "," +SD.KitchenUser)]
     [Area("Admin")]
     public class MenuItemController : Controller
     {

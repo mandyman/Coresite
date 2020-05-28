@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using Coresite.Data;
 using Coresite.Models;
 using Coresite.Models.ViewModel;
+using Coresite.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Coresite.Areas.Admin.Controllers
 {
+    [Authorize(Roles = SD.ManagerUser)]
     [Area("Admin")]
     public class SubCategoryController : Controller
     {

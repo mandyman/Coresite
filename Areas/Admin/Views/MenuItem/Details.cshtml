@@ -16,30 +16,30 @@
         <input readonly type="hidden" asp-for="MenuItem.Id" />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-md-2">
                 <label asp-for="MenuItem.Name" class="col-form-label"></label>
             </div>
-            <div class="col-5">
+            <div class="col-md-5">
                 <input readonly asp-for="MenuItem.Name" class="form-control" />
             </div>
             <span asp-validation-for="MenuItem.Name" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-md-2">
                 <label asp-for="MenuItem.Description" class="col-form-label"></label>
             </div>
-            <div class="col-5">
+            <div class="col-md-5">
                 @Html.TextAreaFor(m => m.MenuItem.Description,new {@readonly = "readonly"})
             </div>
             <span asp-validation-for="MenuItem.Description" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-md-2">
                 <label asp-for="MenuItem.Price" class="col-form-label"></label>
             </div>
-            <div class="col-5">
+            <div class="col-md-5">
                 <input readonly asp-for="MenuItem.Price" class="form-control" />
             </div>
             <span asp-validation-for="MenuItem.Price" class="text-danger"></span>
@@ -48,28 +48,28 @@
 
 
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-md-2">
                 <label asp-for="MenuItem.Image" class="col-form-label"></label>
             </div>
-            <div class="col-5">
-            <img src="@Model.MenuItem.Image" width="50%" style="border-radius: 2px; border: 2px solid #ddd;">
+            <div class="col-md-5">
+            <img src="@Model.MenuItem.Image" width="100%" style="border-radius: 2px; border: 2px solid #ddd;">
        
             </div>
             </div>
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-md-2">
                 <label asp-for="MenuItem.CategoryId" class="col-form-label"></label>
             </div>
-            <div class="col-5">
+            <div class="col-md-5">
                 <select disabled="" asp-for="@Model.MenuItem.CategoryId" id="CategoryId" asp-items="Model.Categories.ToSelectListItem(Model.MenuItem.CategoryId)" class="form-control"></select>
             </div>
 
         </div>
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-md-2">
                 <label asp-for="MenuItem.SubCategoryId" class="col-form-label"></label>
             </div>
-            <div class="col-5">
+            <div class="col-md-5">
                 <select disabled asp-for="@Model.MenuItem.SubCategoryId" name="SubCategoryId" id="SubCategoryId" asp-items="@(new SelectList(string.Empty, "Id", "Name"))" class="form-control"></select>
             </div>
 
@@ -77,17 +77,17 @@
 
 
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-md-2">
                 <label asp-for="MenuItem.Spicyness" class="col-form-label"></label>
             </div>
-            <div class="col-5">
+            <div class="col-md-5">
                 <select disabled asp-for="MenuItem.Spicyness" asp-items="Html.GetEnumSelectList<MenuItem.ESpicyP>()" class="form-control"></select>
             </div>
             <span asp-validation-for="MenuItem.Spicyness" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
-            <div class="col-5 offset-2">
+            <div class="col-md-5 offset-md-2">
                 <partial name="_DetailsAndBackToListButton" model="Model.MenuItem.Id" />
             </div>
         </div>

@@ -1,0 +1,122 @@
+﻿@model Coresite.Models.ShoppingCart
+@using Coresite.Extentions
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-info">Item Details</h2>
+<br />
+
+<form method="post">
+    <div class="border backgroundWhite">
+        <input hidden asp-for="Id" />
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="MenuItem.Name" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input readonly asp-for="MenuItem.Name" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="MenuItem.Description" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+
+                @Html.Raw(Model.MenuItem.Description)
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="MenuItem.Price" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input asp-for="MenuItem.Price" readonly class="form-control" />
+            </div>
+
+        </div>
+
+
+        <div class="form-group row col-md-5 offset-md-2">
+            <img src="@Model.MenuItem.Image" width="100%" style="border-radius: 2px; border: 2px solid #ddd; ">
+        </div>
+        
+        
+
+        <div class="form-group row">
+            <input hidden asp-for="MenuItemId" />
+            <div class="col-md-2">
+                <label asp-for="MenuItem.CategoryId" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input asp-for="MenuItem.Category.Name" readonly class="form-control"/>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="MenuItem.SubCategoryId" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input asp-for="MenuItem.SubCategory.Name" readonly class="form-control" />
+            </div>
+
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="MenuItem.Spicyness" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <select disabled asp-for="MenuItem.Spicyness" asp-items="Html.GetEnumSelectList<MenuItem.ESpicyP>()" class="form-control"></select>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="Count" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input asp-for="Count"  class="form-control" />
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <button type="submit" value="Add to cart" class="btn btn-primary form-control">Add to cart</button>
+            </div>
+            <div class="col-md-2 ">
+                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
+
+@section Scripts
+{
+
+
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+
+}
+
+
+
