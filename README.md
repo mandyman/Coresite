@@ -28,4 +28,4 @@ Main Views and functionalities (Every one of this view has 3 function that can b
 - Home View: It has the full menu with filters for every Category. Every item has a Detail button that links to DetailsAddToCart view.
 - DetailsAddToCart: It can only be access by login users and it shows the details of the item, and it can chose amount to buy, and can also a button to add to the shopping cart.
 
-The Database at the start only has one user name admin of type Manager with email: "admin@gmail.com" and password: Admin123.
+The Database at the start only has one user name admin of type Manager with email: "admin@gmail.com" and password: "Admin123."
