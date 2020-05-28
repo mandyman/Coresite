@@ -8,6 +8,8 @@ It has several users  types:
 - Kitchen.
 - FrontDesk.
 
+Roles of every user type:
+
 - Customer is the basic user type, it can only access the main page and the menus details display there, this only after registration.
 - Manager is the main role in the database. It can create accounts for all types of users, but mainly other managers users and other  employs, like Kitchen (employs assign to the kitchen area), and FrontDesk. Also is the one that can create new Categories and SubCategories for the dishes, and can create menu items that correspond with this categories and subcategories.
 - Kitchen is the user type that can create menus and dishes but no new Categories or Subcategories, and in the current state of the project behaves basically as a user that can create dishes.
